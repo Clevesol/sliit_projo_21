@@ -5,7 +5,23 @@
  */
 package com.sliit.saloonsayoma.Views;
 
+import com.sliit.saloonsayoma.Views.Weddingcar.booking;
+import com.sliit.saloonsayoma.Views.Weddingcar.car;
+import com.sliit.saloonsayoma.Views.Weddingcar.decoration;
+import com.sliit.saloonsayoma.Views.Weddingcar.driver;
+import com.sliit.saloonsayoma.Views.Weddingcar.menu;
+import com.sliit.saloonsayoma.Views.Weddingcar.package1;
+import com.sliit.saloonsayoma.Views.Weddingcar.search1;
+import com.sliit.saloonsayoma.Views.lasith.Credit;
+import com.sliit.saloonsayoma.Views.lasitha.Laitha;
 import com.sliit.saloonsayoma.Views.navigation.Navigation;
+import com.sliit.saloonsayoma.Views.purchase.Payments;
+import com.sliit.saloonsayoma.Views.purchase.PurchaseOrders;
+import com.sliit.saloonsayoma.Views.purchase.SupplieReg;
+import com.sliit.saloonsayoma.Views.stock.ItemsReg;
+import com.sliit.saloonsayoma.Views.stock.RetunItem;
+import com.sliit.saloonsayoma.Views.stock.ReturnReorderItems;
+import com.sliit.saloonsayoma.Views.stock.SetStock;
 import java.awt.Dimension;
 import java.awt.GraphicsConfiguration;
 import java.awt.Insets;
@@ -26,7 +42,7 @@ public class App extends javax.swing.JFrame {
 
     public App() {
         initComponents();
-        
+
         LayoutManager layout = this.contentPanel.getLayout();
         if (layout instanceof java.awt.CardLayout) {
             this.layoutManager = (java.awt.CardLayout) layout;
@@ -34,10 +50,6 @@ public class App extends javax.swing.JFrame {
         initCompos();
 
     }
-
-    
-
-   
 
     Dimension getPlatformScreenSize() {
 
@@ -94,16 +106,20 @@ public class App extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sliit/saloonsayoma/res/sayom.png"))); // NOI18N
         jLabel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 20, 1, 1));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 661, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +141,7 @@ public class App extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
+            .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
         );
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
@@ -146,8 +162,11 @@ public class App extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,8 +183,13 @@ public class App extends javax.swing.JFrame {
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
 
-                System.out.println(this.contentPanel.getLayout().getClass().getSimpleName());
+        System.out.println(this.contentPanel.getLayout().getClass().getSimpleName());
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+
+            showView("Navigation");
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -198,7 +222,7 @@ public class App extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new App().setVisible(true);
+                getInstance().setVisible(true);
             }
         });
     }
@@ -213,8 +237,95 @@ public class App extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void initCompos() {
-       this.contentPanel.add(new Navigation(), "Navigation");
-       this.layoutManager.show(this.contentPanel, "Navigation");
-       
+        /*Sankajith*/
+        this.contentPanel.add(m, "wCar");
+        this.contentPanel.add(b, "booking");
+        this.contentPanel.add(c, "car");
+        this.contentPanel.add(d, "driver");
+        this.contentPanel.add(dd, "decoration");
+        this.contentPanel.add(s, "sSearch");
+        this.contentPanel.add(p, "wPackage");
+        this.contentPanel.add(m, "wCar");
+        /**
+         *
+         */
+
+        /*Ravishanka*/
+        this.contentPanel.add(pOrders, "pOrders");
+        this.contentPanel.add(sReg, "sReg");
+        this.contentPanel.add(payments, "Payments");
+        /*end*/
+
+ /*Ashaan*/
+        this.contentPanel.add(iReg, "iReg");
+        this.contentPanel.add(rOItem, "rOItem");
+        this.contentPanel.add(rItem, "rItem");
+        this.contentPanel.add(sStock, "sStock");
+        /**
+         *
+         */
+        
+        
+        
+        
+        //lasitha
+        this.contentPanel.add(li,"Lasitha");
+        this.contentPanel.add(cr,"credit");
+
+        this.contentPanel.add(new Navigation(), "Navigation");
+        this.layoutManager.show(this.contentPanel, "Navigation");
+
     }
+
+    /*sanka*/
+    private final menu m = new menu();
+    private final booking b = new booking();
+    private final car c = new car();
+    private final driver d = new driver();
+    private final decoration dd = new decoration();
+    private final search1 s = new search1();
+    private final package1 p = new package1();
+
+    /* end*/
+ /*RAVIYA*/
+    private final PurchaseOrders pOrders = new PurchaseOrders();
+    private final SupplieReg sReg = new SupplieReg();
+    private final Payments payments = new Payments();
+    /*edn*/
+
+ /*Ashaan*/
+    private final ItemsReg iReg = new ItemsReg();
+    private final ReturnReorderItems rOItem = new ReturnReorderItems();
+    private final RetunItem rItem = new RetunItem();
+    private final SetStock sStock = new SetStock();
+    
+    
+    /*
+    lasitha
+    
+    **/
+    
+    private final Laitha li = new Laitha();
+    private final Credit cr = new Credit();
+    /**
+     * en
+     *
+     * @param view
+     */
+    public static void showView(String view) {
+            App app = getInstance();
+            app.layoutManager.show(app.contentPanel, view);
+    }
+
+    private static App app = null;
+
+    
+    //design  pattern
+    private static App getInstance() {
+        if (app == null) {
+            app = new App();
+        }
+        return app;
+    }
+
 }
